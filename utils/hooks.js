@@ -1,7 +1,10 @@
 const { After } = require('cucumber');
 
-After({ tags: '@medium' }, async function () {
-  const screenshot = await browser.takeScreenshot();
-  const decodedImage = new Buffer.from(screenshot, 'base64');
-  return this.attach(decodedImage, 'image/png');
+After(function (testCase) {
+  if (testCase.result.status === Status.FAILED) {
+    return browser.takeScreenshot().then(screenShot => {
+      let decodedImage = new Buffer(screenShot, 'base64')
+      return this.attach(decodedImage, 'image/png');
+    });
+  }
 });

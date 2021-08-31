@@ -17,6 +17,7 @@
     "chai": "^4.2.0",
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0",
+    "cucumber-junit-convert": "^2.0.0",
     "cucumber-pretty": "^6.0.0",
     "fs-extra": "^9.0.0",
     "protractor": "^7.0.0",
